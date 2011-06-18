@@ -1,0 +1,19 @@
+==============================
+9999-99-99 99:99:99 +0000 HEAD
+==============================
+
+  commit e0ca9e1e82d98314778c8f49ef416998262a09ad
+  Author: Edward Allen <ealleniii@cpan.org>
+  Date:   Sat Jun 18 15:06:29 2011 -0700
+  
+    Fixed distro name in dzil
+
+  commit e2e36fff3389e31b3e72b7997d6be760742753f0
+  Author: Edward Allen <ealleniii@cpan.org>
+  Date:   Sat Jun 18 14:57:49 2011 -0700
+  
+    New CPAN release of MooseX-Attribute-Unique - v0.001 
+
+===================================
+End of changes in the last 365 days
+===================================
