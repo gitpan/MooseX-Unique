@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique;
 BEGIN {
-  $MooseX::Unique::VERSION = '0.002';
+  $MooseX::Unique::VERSION = '0.003';
 }
 BEGIN {
   $MooseX::Unique::AUTHORITY = 'cpan:EALLENIII';
@@ -34,6 +34,7 @@ Moose::Exporter->setup_import_methods(
     },
     role_metaroles => {
         role      => ['MooseX::Unique::Meta::Trait::Role'],
+        applied_attribute => ['MooseX::Unique::Meta::Trait::Attribute'],
         attribute => ['MooseX::Unique::Meta::Trait::Attribute'],
         application_to_class =>
             ['MooseX::Unique::Meta::Trait::Role::ApplicationToClass'],
@@ -41,7 +42,7 @@ Moose::Exporter->setup_import_methods(
             ['MooseX::Unique::Meta::Trait::Role::ApplicationToRole'],
     },
     base_class_roles => ['MooseX::Unique::Meta::Trait::Object'],
-    with_meta        => ['unique'],
+    with_meta        => ['unique', 'required_matches'],
 
 );
 
@@ -50,8 +51,14 @@ sub unique {
     if ( ref $att[0] ) {
         @att = @{ $att[0] };
     }
-    $meta->match_attribute( \@att );
+    $meta->add_match_attribute( @att );
 }
+
+sub required_matches {
+    my ( $meta, $val) = @_;
+    $meta->add_match_requires( $val );
+}
+
 
 1;
 
@@ -70,7 +77,7 @@ MooseX::Unique - Make your Moose instances as unique as you are
 
 =head1 VERSION
 
-  This document describes v0.002 of MooseX::Unique - released June 18, 2011 as part of MooseX-Unique.
+  This document describes v0.003 of MooseX::Unique - released June 19, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 
@@ -161,23 +168,22 @@ existing instance.
 =head2 unique($attr)
 
 Sugar method that can be used instead of attribute labeling.  Set $attr to 
-the name of an attribute and it will be unique.  If you use this keyword in
-your class, all unique attribute labels will be ignored.  
+the name of an attribute and it will be unique.
+
+This can be used in a role even if the attribute is not defined in the role.
+
+=head2 required_matches($int)
+
+Sugar method that sets the minimum number of matches required to make a match.
+The default is 1.  Setting this to 0 means that a match requires that all
+attributes set to unique are matched. If you run this more than once, for
+example in a role, it will add to the existing unless the existing is 0.  If
+you set it to 0, it will reset it to 0 regardless of current value. 
 
 =head1 BUGS
 
-Currently, when used in a role, attribute metaroles don't get applied
-correctly.  To correct this, add a trait as follows: 
-
-    has identity => (
-        is  => 'ro',
-        isa => 'Str',
-        required => 1,
-        unique => 1,
-        traits => ['UniqueIdentity'],
-    );
-
-This does not affect the use of the unique command.
+I'm sure there are a few in the shadows.  Please submit test cases to the bug
+tracker web link above.  
 
 =head1 ACKNOWLEDGMENTS
 

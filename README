@@ -2,7 +2,7 @@ NAME
     MooseX::Unique - Make your Moose instances as unique as you are
 
 VERSION
-      This document describes v0.002 of MooseX::Unique - released June 18, 2011 as part of MooseX-Unique.
+      This document describes v0.003 of MooseX::Unique - released June 19, 2011 as part of MooseX-Unique.
 
 SYNOPSIS
         package MyApp;
@@ -79,22 +79,22 @@ METHODS
 FUNCTIONS
   unique($attr)
     Sugar method that can be used instead of attribute labeling. Set $attr
-    to the name of an attribute and it will be unique. If you use this
-    keyword in your class, all unique attribute labels will be ignored.
+    to the name of an attribute and it will be unique.
+
+    This can be used in a role even if the attribute is not defined in the
+    role.
+
+  required_matches($int)
+    Sugar method that sets the minimum number of matches required to make a
+    match. The default is 1. Setting this to 0 means that a match requires
+    that all attributes set to unique are matched. If you run this more than
+    once, for example in a role, it will add to the existing unless the
+    existing is 0. If you set it to 0, it will reset it to 0 regardless of
+    current value.
 
 BUGS
-    Currently, when used in a role, attribute metaroles don't get applied
-    correctly. To correct this, add a trait as follows:
-
-        has identity => (
-            is  => 'ro',
-            isa => 'Str',
-            required => 1,
-            unique => 1,
-            traits => ['UniqueIdentity'],
-        );
-
-    This does not affect the use of the unique command.
+    I'm sure there are a few in the shadows. Please submit test cases to the
+    bug tracker web link above.
 
 ACKNOWLEDGMENTS
     Thanks to Jesse (doy) Luehrs for steering me clear of bad code design.

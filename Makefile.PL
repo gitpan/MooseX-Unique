@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010000;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'MooseX::Unique',
   'PREREQ_PM' => {
+    'List::MoreUtils' => '0',
     'Moose' => '1.9900',
     'Moose::Exporter' => '0',
     'Moose::Role' => '0',
@@ -32,7 +33,7 @@ my %WriteMakefileArgs = (
     'Moose::Util::MetaRole' => '0',
     'MooseX::InstanceTracking' => '0.06'
   },
-  'VERSION' => '0.002',
+  'VERSION' => '0.003',
   'test' => {
     'TESTS' => 't/*.t'
   }

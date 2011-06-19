@@ -9,36 +9,74 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Class;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Class::VERSION = '0.002';
+  $MooseX::Unique::Meta::Trait::Class::VERSION = '0.003';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Class::AUTHORITY = 'cpan:EALLENIII';
 }
 #ABSTRACT:  MooseX::Unique Class MetaRole
 use Moose::Role;
+use List::MoreUtils qw(uniq);
 
-has match_attribute => (
+has _match_attribute => (
     traits  => ['Array'],
-    isa     => 'ArrayRef[Any]',
+    isa     => 'ArrayRef',
     is      => 'rw',
     lazy    => 1,
-    default => sub {
-        my $self = shift;
-        my @ret  = ();
-        for my $attribute ( map { $self->get_attribute($_) }
-            $self->get_attribute_list ) {
-            if ( $attribute->unique ) {
-                push @ret, $attribute;
-            }
-        }
-        return \@ret;
-    },
+    default => sub {[]},
     handles => {
-        _has_match_attributes => 'count',
-        match_attributes      => 'elements',
         add_match_attribute   => 'push',
+        _match_attributes     => 'elements',
     },
 );
+
+sub _has_match_attributes {
+    my $self = shift;
+    return ($self->match_attributes) ? 1 : 0;
+}
+
+sub _is_attr_unique {
+    my ($self, $attr) = @_;
+    my $attr_obj = $self->get_attribute($attr);
+    return (($attr_obj->can('unique')) && ($attr_obj->unique));
+}
+
+sub match_attributes {
+    my $self = shift;
+
+    return uniq $self->_match_attributes, 
+                map { 
+                    $self->_is_attr_unique($_) ? ($_) : () 
+                } $self->get_attribute_list;
+}
+
+
+has match_requires => (
+    isa => 'Int',
+    lazy => 1,
+    default => sub{1},
+    reader    => 'match_requires',
+    writer    => '_set_match_requires',
+    predicate => '_has_match_requires',
+);
+
+sub add_match_requires {
+    my ($self,$val) = @_;
+
+    my $newval = 
+
+       ($val == 0)                         ? 0
+
+     : (    ($self->_has_match_requires) 
+         && ($self->match_requires > 0))   ? $self->match_requires + $val
+
+     : (    ($self->_has_match_requires) 
+         && ($self->match_requires == 0))  ? 0
+
+     :                                       $val;
+
+    $self->_set_match_requires($newval);
+}
 
 1;
 
@@ -55,7 +93,7 @@ MooseX::Unique::Meta::Trait::Class - MooseX::Unique Class MetaRole
 
 =head1 VERSION
 
-  This document describes v0.002 of MooseX::Unique::Meta::Trait::Class - released June 18, 2011 as part of MooseX-Unique.
+  This document describes v0.003 of MooseX::Unique::Meta::Trait::Class - released June 19, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 
@@ -64,12 +102,6 @@ See L<MooseX::Unique|MooseX::Unique>;
 =head1 DESCRIPTION
 
 Provides the attribute match_attribute to your metaclass.
-
-=head1 ATTRIBUTES
-
-=head2 match_attribute
-
-An arrayref of match attributes.
 
 =head1 METHODS
 
@@ -80,6 +112,19 @@ Returns a list of match attributes
 =head2 add_match_attribute
 
 Add a match attribute
+
+=head2 match_requires
+
+The minimum number of attributes that must match to consider two objects to be
+identical.  The default is 1.  
+
+=head2 add_match_requires
+
+Sets the minimum number of matches required to make a match.
+Setting this to 0 means that a match requires that all
+attributes set to unique are matched. If you run this more than once, for
+example in a role, it will add to the existing unless the existing is 0.  If
+you set it to 0, it will reset it to 0 regardless of current value. 
 
 =head1 SEE ALSO
 

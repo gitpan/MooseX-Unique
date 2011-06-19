@@ -9,12 +9,13 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Object;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Object::VERSION = '0.002';
+  $MooseX::Unique::Meta::Trait::Object::VERSION = '0.003';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Object::AUTHORITY = 'cpan:EALLENIII';
 }
 #ABSTRACT:  MooseX::Unique base class role
+use 5.10.0;
 use Moose::Role;
 use strict; use warnings;
 
@@ -40,16 +41,19 @@ sub find_matching {
                     }
                     my $attr = $class->meta->find_attribute_by_name($match_attr);
                     if (  $attr->has_value($instance) )  {
-                        if ( $attr->get_value($instance) eq $params->{$match_attr} )  {
+                        if ( $attr->get_value($instance) ~~ $params->{$match_attr} )  {
                             $match++;
                         }
                         $potential++;    
                     }
                 }
-                #if (($match) && ($match == $potential)) { return $instance; }
-                if ($match) { 
+                my $required = $class->meta->match_requires;
+                if (($required) && ($match >= $required)) {
                     return $instance; 
-                }  
+                }
+                elsif ((! $required) && ($match == $potential)) {
+                    return $instance; 
+                }
             }
         }
     }
@@ -72,7 +76,7 @@ MooseX::Unique::Meta::Trait::Object - MooseX::Unique base class role
 
 =head1 VERSION
 
-  This document describes v0.002 of MooseX::Unique::Meta::Trait::Object - released June 18, 2011 as part of MooseX-Unique.
+  This document describes v0.003 of MooseX::Unique::Meta::Trait::Object - released June 19, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 

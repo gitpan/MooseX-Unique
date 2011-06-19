@@ -20,19 +20,20 @@ my %module_build_args = (
     'Edward Allen <ealleniii@cpan.org>'
   ],
   'dist_name' => 'MooseX-Unique',
-  'dist_version' => '0.002',
+  'dist_version' => '0.003',
   'license' => 'perl',
   'module_name' => 'MooseX::Unique',
   'recommends' => {},
   'recursive_test_files' => 1,
   'requires' => {
+    'List::MoreUtils' => '0',
     'Moose' => '1.9900',
     'Moose::Exporter' => '0',
     'Moose::Role' => '0',
     'Moose::Util' => '0',
     'Moose::Util::MetaRole' => '0',
     'MooseX::InstanceTracking' => '0.06',
-    'perl' => '5.006'
+    'perl' => '5.10.0'
   },
   'script_files' => []
 );

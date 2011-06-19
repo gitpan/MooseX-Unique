@@ -9,39 +9,26 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Role;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Role::VERSION = '0.002';
+  $MooseX::Unique::Meta::Trait::Role::VERSION = '0.003';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Role::AUTHORITY = 'cpan:EALLENIII';
 }
-#ABSTRACT:  MooseX::Uniqur Role MetaRole
+#ABSTRACT:  MooseX::Unique Role MetaRole
 use Moose::Role;
 
-has match_attribute => (
-    traits  => ['Array'],
-    isa     => 'ArrayRef[Any]',
-    is      => 'rw',
-    lazy    => 1,
-    default => sub {
-        my $self = shift;
-        my @ret  = ();
-        for my $attribute ( map { $self->get_attribute($_) }
-            $self->get_attribute_list ) {
-            if ( $attribute->unique ) {
-                push @ret, $attribute;
-            }
-        }
-        return \@ret;
-    },
-    handles => {
-        _has_match_attributes => 'count',
-        match_attributes      => 'elements',
-        add_match_attribute   => 'push',
-    },
-);
+with 'MooseX::Unique::Meta::Trait::Class';
 
 sub apply_match_attributes_to_class {
     my ($role,$class) = @_;
+    my $match_requires = undef;
+
+    if (    ($class->can('_has_match_requires')) 
+         && ($role->_has_match_requires) 
+         && ($class->_has_match_requires)) { 
+            $match_requires = $class->match_requires;
+    }
+
     $class = Moose::Util::MetaRole::apply_metaroles(
         for             => $class,
         class_metaroles => {
@@ -53,27 +40,30 @@ sub apply_match_attributes_to_class {
         },
         role_metaroles => {
             role      => ['MooseX::Unique::Meta::Trait::Role'],
+            applied_attribute => ['MooseX::Unique::Meta::Trait::Attribute'],
             attribute => ['MooseX::Unique::Meta::Trait::Attribute'],
             application_to_class =>
                 ['MooseX::Unique::Meta::Trait::Role::ApplicationToClass'],
         },
     );
 
-    if ( $class->_has_match_attributes ) {
-        $class->add_match_attribute( @{ $role->match_attribute } );
+    $class->add_match_attribute( $role->match_attributes );
+
+    if (defined $match_requires) {
+        $class->_set_match_requires($match_requires);
     }
-    else {
-        $class->match_attribute( $role->match_attribute );
+
+    if ($role->_has_match_requires) {
+        $class->add_match_requires($role->match_requires);
+
     }
+
     return $class;
 }
 
 sub composition_class_roles {
     return ('MooseX::Unique::Meta::Trait::Role::Composite');
 }
-
-
-
 
 1;
 
@@ -86,11 +76,11 @@ sub composition_class_roles {
 
 =head1 NAME
 
-MooseX::Unique::Meta::Trait::Role - MooseX::Uniqur Role MetaRole
+MooseX::Unique::Meta::Trait::Role - MooseX::Unique Role MetaRole
 
 =head1 VERSION
 
-  This document describes v0.002 of MooseX::Unique::Meta::Trait::Role - released June 18, 2011 as part of MooseX-Unique.
+  This document describes v0.003 of MooseX::Unique::Meta::Trait::Role - released June 19, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 
