@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Role;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Role::VERSION = '0.003';
+  $MooseX::Unique::Meta::Trait::Role::VERSION = '0.004';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Role::AUTHORITY = 'cpan:EALLENIII';
@@ -44,6 +44,8 @@ sub apply_match_attributes_to_class {
             attribute => ['MooseX::Unique::Meta::Trait::Attribute'],
             application_to_class =>
                 ['MooseX::Unique::Meta::Trait::Role::ApplicationToClass'],
+            application_to_role =>
+                ['MooseX::Unique::Meta::Trait::Role::ApplicationToRole'],
         },
     );
 
@@ -80,7 +82,7 @@ MooseX::Unique::Meta::Trait::Role - MooseX::Unique Role MetaRole
 
 =head1 VERSION
 
-  This document describes v0.003 of MooseX::Unique::Meta::Trait::Role - released June 19, 2011 as part of MooseX-Unique.
+  This document describes v0.004 of MooseX::Unique::Meta::Trait::Role - released June 22, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 

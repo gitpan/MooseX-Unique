@@ -10,7 +10,10 @@ my %module_build_args = (
     'File::Find' => '0',
     'File::Temp' => '0',
     'Module::Build' => '0.3601',
-    'Test::More' => '0.88'
+    'Moose::Util::TypeConstraints' => '0',
+    'Scalar::Util' => '0',
+    'Test::More' => '0.88',
+    'overload' => '0'
   },
   'configure_requires' => {
     'Module::Build' => '0.3601'
@@ -20,7 +23,7 @@ my %module_build_args = (
     'Edward Allen <ealleniii@cpan.org>'
   ],
   'dist_name' => 'MooseX-Unique',
-  'dist_version' => '0.003',
+  'dist_version' => '0.004',
   'license' => 'perl',
   'module_name' => 'MooseX::Unique',
   'recommends' => {},

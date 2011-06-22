@@ -57,8 +57,11 @@ eval { $v .= pmver('Moose::Exporter','any version') };
 eval { $v .= pmver('Moose::Role','any version') };
 eval { $v .= pmver('Moose::Util','any version') };
 eval { $v .= pmver('Moose::Util::MetaRole','any version') };
+eval { $v .= pmver('Moose::Util::TypeConstraints','any version') };
 eval { $v .= pmver('MooseX::InstanceTracking','0.06') };
+eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('overload','any version') };
 
 
 

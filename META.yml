@@ -6,7 +6,10 @@ build_requires:
   File::Find: 0
   File::Temp: 0
   Module::Build: 0.3601
+  Moose::Util::TypeConstraints: 0
+  Scalar::Util: 0
   Test::More: 0.88
+  overload: 0
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
@@ -26,28 +29,28 @@ no_index:
 provides:
   MooseX::Unique:
     file: lib/MooseX/Unique.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Attribute:
     file: lib/MooseX/Unique/Meta/Trait/Attribute.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Class:
     file: lib/MooseX/Unique/Meta/Trait/Class.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Object:
     file: lib/MooseX/Unique/Meta/Trait/Object.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Role:
     file: lib/MooseX/Unique/Meta/Trait/Role.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Role::ApplicationToClass:
     file: lib/MooseX/Unique/Meta/Trait/Role/ApplicationToClass.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Role::ApplicationToRole:
     file: lib/MooseX/Unique/Meta/Trait/Role/ApplicationToRole.pm
-    version: 0.003
+    version: 0.004
   MooseX::Unique::Meta::Trait::Role::Composite:
     file: lib/MooseX/Unique/Meta/Trait/Role/Composite.pm
-    version: 0.003
+    version: 0.004
 requires:
   List::MoreUtils: 0
   Moose: 1.9900
@@ -62,7 +65,7 @@ resources:
   homepage: http://search.cpan.org/dist/MooseX-Unique/
   license: http://dev.perl.org/licenses/
   repository: git://github.com/riemann42/MooseX-Unique.git
-version: 0.003
+version: 0.004
 x_BuiltWith:
   modules:
     File::Temp: 0.22
@@ -73,8 +76,11 @@ x_BuiltWith:
     Moose::Role: 2.0102
     Moose::Util: 2.0102
     Moose::Util::MetaRole: 2.0102
+    Moose::Util::TypeConstraints: 2.0102
     MooseX::InstanceTracking: 0.06
+    Scalar::Util: 1.23
     Test::More: 0.98
+    overload: 1.10
     perl: 'NA(skipped: perl)'
   perl:
     original: v5.12.3

@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Role::Composite;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Role::Composite::VERSION = '0.003';
+  $MooseX::Unique::Meta::Trait::Role::Composite::VERSION = '0.004';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Role::Composite::AUTHORITY = 'cpan:EALLENIII';
@@ -33,6 +33,8 @@ around apply_params => sub {
             attribute => ['MooseX::Unique::Meta::Trait::Attribute'],
             application_to_class =>
                 ['MooseX::Unique::Meta::Trait::Role::ApplicationToClass'],
+            application_to_role =>
+                ['MooseX::Unique::Meta::Trait::Role::ApplicationToRole'],
         },
     );
     for my $inc_role ( @{ $role->get_roles } ) {
@@ -63,7 +65,7 @@ MooseX::Unique::Meta::Trait::Role::Composite - MooseX::Unique helper module
 
 =head1 VERSION
 
-  This document describes v0.003 of MooseX::Unique::Meta::Trait::Role::Composite - released June 19, 2011 as part of MooseX-Unique.
+  This document describes v0.004 of MooseX::Unique::Meta::Trait::Role::Composite - released June 22, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 

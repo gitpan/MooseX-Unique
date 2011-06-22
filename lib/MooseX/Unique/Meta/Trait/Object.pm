@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Object;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Object::VERSION = '0.003';
+  $MooseX::Unique::Meta::Trait::Object::VERSION = '0.004';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Object::AUTHORITY = 'cpan:EALLENIII';
@@ -76,7 +76,7 @@ MooseX::Unique::Meta::Trait::Object - MooseX::Unique base class role
 
 =head1 VERSION
 
-  This document describes v0.003 of MooseX::Unique::Meta::Trait::Object - released June 19, 2011 as part of MooseX-Unique.
+  This document describes v0.004 of MooseX::Unique::Meta::Trait::Object - released June 22, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 

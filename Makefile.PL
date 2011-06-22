@@ -15,7 +15,10 @@ my %WriteMakefileArgs = (
     'File::Find' => '0',
     'File::Temp' => '0',
     'ExtUtils::MakeMaker' => '6.30',
-    'Test::More' => '0.88'
+    'Moose::Util::TypeConstraints' => '0',
+    'Scalar::Util' => '0',
+    'Test::More' => '0.88',
+    'overload' => '0'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.30'
@@ -33,7 +36,7 @@ my %WriteMakefileArgs = (
     'Moose::Util::MetaRole' => '0',
     'MooseX::InstanceTracking' => '0.06'
   },
-  'VERSION' => '0.003',
+  'VERSION' => '0.004',
   'test' => {
     'TESTS' => 't/*.t'
   }

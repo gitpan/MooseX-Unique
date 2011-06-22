@@ -2,6 +2,22 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit 57d7f81c0c2f75848e128283408010fe537ef5de
+  Author: Edward Allen <ealleniii@cpan.org>
+  Date:   Wed Jun 22 12:04:28 2011 -0700
+  
+    Updated tests and added smartmatch test
+
+  commit e2220b92422fc9e08235a829f141759041d3a68a
+  Author: Edward Allen <ealleniii@cpan.org>
+  Date:   Wed Jun 22 11:52:36 2011 -0700
+  
+    Fixed missing apply-to-role in composite and added test 
+
+================================
+2011-06-19 09:27:10 -0700 v0.003
+================================
+
   commit 2c3bbbaffbc8032be440383290a57a3991c556cb
   Author: Edward Allen <ealleniii@cpan.org>
   Date:   Sun Jun 19 09:27:10 2011 -0700

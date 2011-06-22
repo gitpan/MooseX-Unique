@@ -28,10 +28,18 @@
     1;
 }
 
+{   package MyApp::RoleC;
+    use Moose::Role;
+    with 'MyApp::RoleA', 'MyApp::RoleB';
+    no Moose::Role;
+    1;
+
+}
+
 {
     package MyApp;
     use Moose;
-    with 'MyApp::RoleA', 'MyApp::RoleB';
+    with 'MyApp::RoleC';
     __PACKAGE__->meta->make_immutable();
 }
 

@@ -27,6 +27,7 @@ t/attr_multimatchrole4.t
 t/basic.t
 t/composite.t
 t/composite2.t
+t/composite3.t
 t/main.pl
 t/multi.pl
 t/multimatch.t
@@ -42,4 +43,5 @@ t/roles.t
 t/roles2.t
 t/roles3.t
 t/secondhand.t
+t/smartmatch.t
 weaver.ini

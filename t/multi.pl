@@ -8,7 +8,7 @@
 #
 use strict; use warnings;
 use strict; use warnings;
-use Test::More tests => 9;                      # last test to print
+use Test::More;
 
 my $objecta = MyApp->new_or_matching(identity => 'Mine', secret_identity => 'Edward');
 my $objectb = MyApp->new_or_matching(identity => 'Mine', secret_identity => 'Edward');

@@ -49,42 +49,45 @@
          "requires" : {
             "File::Find" : 0,
             "File::Temp" : 0,
-            "Test::More" : "0.88"
+            "Moose::Util::TypeConstraints" : 0,
+            "Scalar::Util" : 0,
+            "Test::More" : "0.88",
+            "overload" : 0
          }
       }
    },
    "provides" : {
       "MooseX::Unique" : {
          "file" : "lib/MooseX/Unique.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Attribute" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Attribute.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Class" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Class.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Object" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Object.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Role" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Role.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Role::ApplicationToClass" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Role/ApplicationToClass.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Role::ApplicationToRole" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Role/ApplicationToRole.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "MooseX::Unique::Meta::Trait::Role::Composite" : {
          "file" : "lib/MooseX/Unique/Meta/Trait/Role/Composite.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       }
    },
    "release_status" : "stable",
@@ -103,7 +106,7 @@
          "web" : "http://github.com/riemann42/MooseX-Unique"
       }
    },
-   "version" : "0.003",
+   "version" : "0.004",
    "x_BuiltWith" : {
       "modules" : {
          "File::Temp" : "0.22",
@@ -114,8 +117,11 @@
          "Moose::Role" : "2.0102",
          "Moose::Util" : "2.0102",
          "Moose::Util::MetaRole" : "2.0102",
+         "Moose::Util::TypeConstraints" : "2.0102",
          "MooseX::InstanceTracking" : "0.06",
+         "Scalar::Util" : "1.23",
          "Test::More" : "0.98",
+         "overload" : "1.10",
          "perl" : "NA(skipped: perl)"
       },
       "perl" : {
