@@ -2,6 +2,17 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit 24aa36d6039bfc77696b71723fb0e810d1097821
+  Author: Edward Allen <ealleniii@cpan.org>
+  Date:   Wed Jun 22 19:29:37 2011 -0700
+  
+    Changed prereqs and changed composition_class_roles to be done with
+    around method modifier 
+
+================================
+2011-06-22 12:04:28 -0700 v0.004
+================================
+
   commit 57d7f81c0c2f75848e128283408010fe537ef5de
   Author: Edward Allen <ealleniii@cpan.org>
   Date:   Wed Jun 22 12:04:28 2011 -0700

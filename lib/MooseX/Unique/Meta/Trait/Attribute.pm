@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Attribute;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Attribute::VERSION = '0.004';
+  $MooseX::Unique::Meta::Trait::Attribute::VERSION = '0.005';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Attribute::AUTHORITY = 'cpan:EALLENIII';
@@ -43,7 +43,7 @@ MooseX::Unique::Meta::Trait::Attribute - MooseX::Unique Attribute Trait;
 
 =head1 VERSION
 
-  This document describes v0.004 of MooseX::Unique::Meta::Trait::Attribute - released June 22, 2011 as part of MooseX-Unique.
+  This document describes v0.005 of MooseX::Unique::Meta::Trait::Attribute - released June 22, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 

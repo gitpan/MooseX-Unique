@@ -2,7 +2,7 @@ NAME
     MooseX::Unique - Make your Moose instances as unique as you are
 
 VERSION
-      This document describes v0.004 of MooseX::Unique - released June 22, 2011 as part of MooseX-Unique.
+      This document describes v0.005 of MooseX::Unique - released June 22, 2011 as part of MooseX-Unique.
 
 SYNOPSIS
         package MyApp;

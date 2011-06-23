@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique;
 BEGIN {
-  $MooseX::Unique::VERSION = '0.004';
+  $MooseX::Unique::VERSION = '0.005';
 }
 BEGIN {
   $MooseX::Unique::AUTHORITY = 'cpan:EALLENIII';
@@ -77,7 +77,7 @@ MooseX::Unique - Make your Moose instances as unique as you are
 
 =head1 VERSION
 
-  This document describes v0.004 of MooseX::Unique - released June 22, 2011 as part of MooseX-Unique.
+  This document describes v0.005 of MooseX::Unique - released June 22, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 

@@ -28,9 +28,11 @@ t/basic.t
 t/composite.t
 t/composite2.t
 t/composite3.t
+t/composite4.t
 t/main.pl
 t/multi.pl
 t/multimatch.t
+t/multimatchcomp.t
 t/multimatchrole.t
 t/multimatchrole2.t
 t/multimatchrole3.t

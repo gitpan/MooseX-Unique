@@ -30,13 +30,9 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'List::MoreUtils' => '0',
     'Moose' => '1.9900',
-    'Moose::Exporter' => '0',
-    'Moose::Role' => '0',
-    'Moose::Util' => '0',
-    'Moose::Util::MetaRole' => '0',
     'MooseX::InstanceTracking' => '0.06'
   },
-  'VERSION' => '0.004',
+  'VERSION' => '0.005',
   'test' => {
     'TESTS' => 't/*.t'
   }

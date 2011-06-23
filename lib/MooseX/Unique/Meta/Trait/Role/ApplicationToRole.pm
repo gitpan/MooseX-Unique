@@ -9,7 +9,7 @@
 use strict; use warnings;
 package MooseX::Unique::Meta::Trait::Role::ApplicationToRole;
 BEGIN {
-  $MooseX::Unique::Meta::Trait::Role::ApplicationToRole::VERSION = '0.004';
+  $MooseX::Unique::Meta::Trait::Role::ApplicationToRole::VERSION = '0.005';
 }
 BEGIN {
   $MooseX::Unique::Meta::Trait::Role::ApplicationToRole::AUTHORITY = 'cpan:EALLENIII';
@@ -42,7 +42,7 @@ MooseX::Unique::Meta::Trait::Role::ApplicationToRole - MooseX::Unique helper mod
 
 =head1 VERSION
 
-  This document describes v0.004 of MooseX::Unique::Meta::Trait::Role::ApplicationToRole - released June 22, 2011 as part of MooseX-Unique.
+  This document describes v0.005 of MooseX::Unique::Meta::Trait::Role::ApplicationToRole - released June 22, 2011 as part of MooseX-Unique.
 
 =head1 SYNOPSIS
 
